@@ -18,31 +18,30 @@ public class BancoAgenciaMain {
 
         List<Agencia> agencias = new ArrayList<>();
 
-        System.out.print("Quantas agências deseja cadastrar? ");
+        System.out.print("que adiciona uma agencia s/n ");
+        String s = enviar.nextLine();
+        if (s.equals("s")) {
+             System.out.print("Quantas agências deseja cadastrar? ");
         int quantidade = enviar.nextInt();
         enviar.nextLine();
-
-        for (int i = 0; i < quantidade; i++) {
+             for (int i = 0; i < quantidade; i++) {
             Agencia agencia = new Agencia();
-
             System.out.println("\nAgência " + (i + 1));
-
             System.out.print("Número da agência: ");
             agencia.setNumero(enviar.nextInt());
             enviar.nextLine();
-
             System.out.print("Nome da agência: ");
             agencia.setNome(enviar.nextLine());
-
             agencias.add(agencia);
+        }
         }
         banco.setAgencias(agencias);
         System.out.println("\n=== DADOS DO BANCO ===");
         System.out.println("Número do Banco: " + banco.getNumero());
         System.out.println("Nome do Banco: " + banco.getNome());
-        System.out.println("\nAgências:");
         for (Agencia agencia : banco.getAgencias()) {
             System.out.println(
+                "\nAgências:"+
                 "- Número: " + agencia.getNumero()
                 + ", Nome: " + agencia.getNome()
             );
